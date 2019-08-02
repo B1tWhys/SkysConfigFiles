@@ -1,0 +1,1 @@
+/Users/skylerarnold/.config/nvim/init.vim
