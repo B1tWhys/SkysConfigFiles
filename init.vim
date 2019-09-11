@@ -1,23 +1,50 @@
 call plug#begin('~/.local/share/nvim/plugged')
-Plug 'https://github.com/s3rvac/vim-syntax-retdecdsm.git'
-Plug 'scrooloose/nerdcommenter'
-Plug 'godlygeek/tabular'
-Plug 'valloric/youcompleteme'
-Plug 'lervag/vimtex'
-Plug 'sirver/ultisnips'
+"Plug 'valloric/youcompleteme'
 Plug 'dart-lang/dart-vim-plugin'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-fugitive'
+Plug 'dart-lang/dart-vim-plugin'
+Plug 'ervandew/supertab'
+Plug 'godlygeek/tabular'
+Plug 'lervag/vimtex'
+Plug 'natebosch/dartlang-snippets'
+Plug 'natebosch/vim-lsc'
+Plug 'natebosch/vim-lsc-dart'
+Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
+Plug 'sirver/ultisnips'
+Plug 'thosakwe/vim-flutter'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+Plug 'kien/ctrlp.vim'
 call plug#end()
 
 let g:NERDCustomDelimiters = { 'c': { 'left': '// ','right': ''}}
 let g:NERDDpaceDelims=1
 
-let g:ycm_confirm_extra_conf=0
-let g:ycm_autoclose_preview_window_after_insertion=1
+"let g:ycm_confirm_extra_conf=0
+"let g:ycm_autoclose_preview_window_after_insertion=1
+
+let dart_style_guide=2
+
+let g:lsc_server_commands = {'dart': 'dart_language_server'}
+let g:lsc_auto_map = {
+    \ 'defaults': v:true,
+    \ 'GoToDefinition': '<leader>g',
+    \ 'GoToDefinitionSplit': '<leader>G',
+    \ 'FindReferences': '<leader>R',
+    \ 'NextReference': '<leader>n',
+    \ 'PreviousReference': '<leader>N',
+    \ 'Rename': '<leader>c',
+    \ 'ShowHover': ',h',
+    \ }
+autocmd CompleteDone * silent! pclose
+
+nnoremap <C-r> :FlutterRun -d iPhone<cr>:resize 15<cr><C-W>j
+nnoremap <C-s> :FlutterQuit<cr>
+nnoremap <C-E> :FlutterEmulators<cr>
 
 map <C-Space> :NERDTree
+
+let g:SuperTabDefaultCompletionType = "<C-n>"
 
 "if !exists('g:ycm_semantic_triggers')
 "  let g:ycm_semantic_triggers = {}
@@ -71,10 +98,12 @@ highlight Search ctermbg=20
 
 set clipboard+=unnamedplus
 
+autocmd! bufwritepost init.vim source %
 nnoremap <leader>e :e $MYVIMRC<cr>
-"refresh vimrc
+nnoremap <leader>E :vsplit $MYVIMRC<cr>
 nnoremap <leader>r :so $MYVIMRC<cr>
+
 "edit the next placeholder (placeholder is <++>)
 nnoremap <leader><tab> /<++><cr>:noh<cr>cf>
 
-nnoremap <leader>f ifuck.
+nnoremap <leader>F ifuck.
