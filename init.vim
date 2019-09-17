@@ -1,5 +1,4 @@
 call plug#begin('~/.local/share/nvim/plugged')
-"Plug 'valloric/youcompleteme'
 Plug 'dart-lang/dart-vim-plugin'
 Plug 'dart-lang/dart-vim-plugin'
 Plug 'ervandew/supertab'
@@ -15,6 +14,8 @@ Plug 'thosakwe/vim-flutter'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'kien/ctrlp.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'easymotion/vim-easymotion'
 call plug#end()
 
 let g:NERDCustomDelimiters = { 'c': { 'left': '// ','right': ''}}
@@ -37,10 +38,6 @@ let g:lsc_auto_map = {
     \ 'ShowHover': ',h',
     \ }
 autocmd CompleteDone * silent! pclose
-
-nnoremap <C-r> :FlutterRun -d iPhone<cr>:resize 15<cr><C-W>j
-nnoremap <C-s> :FlutterQuit<cr>
-nnoremap <C-E> :FlutterEmulators<cr>
 
 map <C-Space> :NERDTree
 
@@ -74,8 +71,8 @@ set tabstop=4
 set expandtab
 
 set foldmethod=indent
-set nofoldenable
-set foldnestmax=2
+"set nofoldenable
+"set foldnestmax=2
 
 set nocompatible
 set ruler
