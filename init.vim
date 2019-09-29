@@ -47,6 +47,9 @@ let g:lsc_auto_map = {
     \ }
 autocmd CompleteDone * silent! pclose
 
+let g:airline_powerline_fonts = 1
+let g:bufferline_echo = 0
+
 map <C-Space> :NERDTree
 
 let g:SuperTabDefaultCompletionType = "<C-n>"
