@@ -7,15 +7,19 @@ Plug 'lervag/vimtex'
 Plug 'natebosch/dartlang-snippets'
 Plug 'natebosch/vim-lsc'
 Plug 'natebosch/vim-lsc-dart'
+Plug 'valloric/youcompleteme'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'sirver/ultisnips'
 Plug 'thosakwe/vim-flutter'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
+Plug 'bling/vim-bufferline'
 Plug 'kien/ctrlp.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'easymotion/vim-easymotion'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-scripts/a.vim'
 call plug#end()
 
 let g:NERDCustomDelimiters = { 'c': { 'left': '// ','right': ''}}
@@ -71,6 +75,7 @@ set tabstop=4
 set expandtab
 
 set foldmethod=indent
+set foldlevelstart=99
 "set nofoldenable
 "set foldnestmax=2
 
