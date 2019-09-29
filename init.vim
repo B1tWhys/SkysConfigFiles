@@ -20,7 +20,11 @@ Plug 'vim-airline/vim-airline'
 Plug 'easymotion/vim-easymotion'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-scripts/a.vim'
+Plug 'morhetz/gruvbox'
 call plug#end()
+
+colorscheme gruvbox
+set background=dark
 
 let g:NERDCustomDelimiters = { 'c': { 'left': '// ','right': ''}}
 let g:NERDDpaceDelims=1

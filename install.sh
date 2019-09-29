@@ -35,3 +35,16 @@ if [ -d ~/.config/nvim ]; then
     
     ln -s $(pwd)/init.vim ~/.config/nvim/init.vim
 fi
+
+if command -v i3 > /dev/null; then
+    if [ -s ~/.config/.config/i3/config ]; then
+        echo "Found existing i3 config file. Would you like to [d]elete it or [r]ename it to config.old before creating a new symlink?"
+        read rsp
+        case $rsp in
+            [Dd]* ) rm ~/.config/.config/i3/config;;
+            [Rr]* ) mv ~/.config/.config/i3/config ~/.config/.config/i3/config.old;;
+            * ) echo "canceled."; exit;;
+        esac
+    fi
+    ln -s $(pwd)/i3_config ~/.config/i3/config
+fi
