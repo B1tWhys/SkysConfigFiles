@@ -36,28 +36,37 @@ snippet tp "template <typename ..> (template)"
 template <typename ${1:_InputIter}>
 endsnippet
 
-snippet cla "An entire .h generator" b
-#ifndef ${2:`!v substitute(vim_snippets#Filename('$1_H','ClassName'),'.*','\U&\E','')`}
-#define $2
+snippet head ".h file generator" b
+#ifndef $1
+#define $1
 
-class ${1:`!v substitute(substitute(vim_snippets#Filename('$1','ClassName'),'^.','\u&',''), '_\(\w\)', '\u\1', 'g')`}
-{
-private:
-	$3
-
+class $1 {
 public:
 	$1();
-	virtual ~$1();
-};
+	~$1();
 
-#endif /* $2 */
+	$2
+private:
+	$0
+}
+#endif
 endsnippet
 
+snippet cout "std::cout with newline" b
+std::cout << $1 << std::endl;
+endsnippet
 
-snippet fnc "Basic c++ doxygen function template" b
-${1:ReturnType} ${2:FunctionName}(${3:param})
-{
-	${0:FunctionBody}
+# FUNCTION DEC/DEFs
+snippet mfunc "Member func" b
+${1:ReturnType} ${2:ClassName}::${3:FunctionName}(${4}) {
+	$0
 }
 endsnippet
+
+snippet mfuncn "Member func no params" b
+${1:ReturnType} ${2:ClassName}::${3:FunctionName}() {
+	$0
+}
+endsnippet
+
 # vim:ft=snippets:
