@@ -20,7 +20,6 @@ exec --no-startup-id autossh -M 8022:7 -f -N -T -R8022:localhost:22 skyler@myser
 # start conky
 #exec --no-startup-id conky -c /home/skyler/.config/conky/conkyL.conf
 
-# start compton // TODO: for some reason this stopped working. -_-
 exec compton
 
 # fix mouse sensitivity

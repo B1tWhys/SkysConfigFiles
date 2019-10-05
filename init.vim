@@ -27,6 +27,9 @@ let mapleader = ","
 
 colorscheme gruvbox
 set background=dark
+let g:gruvbox_italic = 0
+let g:gruvbox_contrast_dark = 'hard'
+hi Normal ctermbg=none
 
 let g:NERDCustomDelimiters = { 'c': { 'left': '// ','right': ''}}
 let g:NERDDpaceDelims=1
