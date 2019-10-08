@@ -81,6 +81,7 @@ alias gch='git checkout'
 alias gl='git log --graph'
 alias glo='git log --oneline --graph'
 alias gla='git log --oneline --graph --all'
+alias glav='git log --graph --all'
 alias gsta='git stash'
 
 alias gchD='git checkout Development'
@@ -88,3 +89,4 @@ alias gchD='git checkout Development'
 if [[ "$OSTYPE" == "darwin"* ]]; then
     export PATH="$PATH:/Users/$(whoami)/Developer/flutter/bin:/usr/local/Cellar/openvpn/2.4.7_1/sbin"
 fi
+
