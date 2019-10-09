@@ -15,18 +15,18 @@ if [ -s $defaultLocation ]; then
     fi
 fi
 
-#if [ ! -z `command -v powerline` ]; then
-    #powerline-daemon -q
-    #POWERLINE_BASH_CONTINUATION=1
-    #POWERLINE_BASH_SELECT=1
-    #. /usr/share/powerline/bindings/bash/powerline.sh
-#else 
+if [ ! -z `command -v powerline` ]; then
+    powerline-daemon -q
+    POWERLINE_BASH_CONTINUATION=1
+    POWERLINE_BASH_SELECT=1
+    . /usr/share/powerline/bindings/bash/powerline.sh
+else 
 if [ $(whoami) == 'root' ]; then
     PS1="\e[95m!\! \e[32m[\T] \e[91m$(whoami)\e[36m@\h \e[31m\w\e[39m\n# "
 else
     PS1="\e[95m!\! \e[32m[\T] \e[36m$(whoami)@\h \e[31m\w\e[39m\n# "
 fi
-#fi
+fi
 
 set -o vi
 shopt -s cdspell
@@ -85,6 +85,6 @@ alias gsta='git stash'
 
 alias gchD='git checkout Development'
 
-if [[ "$OSTYPE" == "darwin"* ]]; then
-    export PATH="$PATH:/Users/$(whoami)/Developer/flutter/bin:/usr/local/Cellar/openvpn/2.4.7_1/sbin"
-fi
+#if [[ "$OSTYPE" == "darwin"* ]]; then
+    #export PATH="$PATH:/Users/$(whoami)/Developer/flutter/bin:/usr/local/Cellar/openvpn/2.4.7_1/sbin"
+#fi
