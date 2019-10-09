@@ -20,12 +20,16 @@ Plug 'easymotion/vim-easymotion'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-scripts/a.vim'
 Plug 'morhetz/gruvbox'
+"Plug 'yggdroot/indentline'
 call plug#end()
 
 let mapleader = ","
 
 colorscheme gruvbox
 set background=dark
+let g:gruvbox_italic = 0
+let g:gruvbox_contrast_dark = 'hard'
+hi Normal ctermbg=none
 
 let g:NERDCustomDelimiters = { 'c': { 'left': '// ','right': ''}}
 let g:NERDDpaceDelims=1
@@ -103,6 +107,16 @@ set hlsearch
 set wrap
 set mouse=a
 autocmd InsertLeave ? update
+
+noremap <F1> :b1<cr>
+noremap <F2> :b2<cr>
+noremap <F3> :b3<cr>
+noremap <F4> :b4<cr>
+noremap <F5> :b5<cr>
+noremap <F6> :b6<cr>
+noremap <F7> :b7<cr>
+noremap <F8> :b8<cr>
+noremap <F9> :b9<cr>
 
 highlight SpellBad ctermbg=200
 highlight Search ctermbg=20
