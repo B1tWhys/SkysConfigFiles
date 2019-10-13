@@ -277,9 +277,8 @@ client.background       #FFFFFF
 
 
 # TEMP: Fractal window arrangement
-#assign [class="Mandelbrot"] output DP-2
-assign [class="FractalBox"] output DP-2
 assign [class="Fractal Box"] output HDMI-0
+#assign [class="Fractal Box"] output DP-2
 for_window [class="Fractal Box"] floating enable
 assign [class="Settings"] output HDMI-0
 for_window [class="Settings"] floating enable

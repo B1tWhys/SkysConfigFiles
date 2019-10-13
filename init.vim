@@ -13,7 +13,7 @@ Plug 'sirver/ultisnips'
 Plug 'thosakwe/vim-flutter'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
-Plug 'bling/vim-bufferline'
+"Plug 'bling/vim-bufferline'
 Plug 'kien/ctrlp.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'easymotion/vim-easymotion'
@@ -30,6 +30,9 @@ set background=dark
 let g:gruvbox_italic = 0
 let g:gruvbox_contrast_dark = 'hard'
 hi Normal ctermbg=none
+
+autocmd BufNewFile,BufRead *.de set syntax=c
+autocmd BufNewFile,BufRead *.frag set syntax=c
 
 let g:NERDCustomDelimiters = { 'c': { 'left': '// ','right': ''}}
 let g:NERDDpaceDelims=1
@@ -52,7 +55,7 @@ let dart_style_guide=2
 let g:airline_powerline_fonts = 1
 let g:bufferline_echo = 0
 
-map <C-Space> :NERDTree
+map <C-t> :NERDTree<cr>
 
 let g:ycm_confirm_extra_conf=0
 let g:ycm_autoclose_preview_window_after_insertion=1
@@ -62,9 +65,7 @@ let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
 let g:SuperTabDefaultCompletionType = "<C-n>"
 
 "UltiSnips
-imap <c-j> <Nop>
-nmap <c-j> <Nop>
-let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsExpandTrigger = "<c-space>"
 let g:UltiSnipsJumpForwardTrigger = "<c-j>"
 let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
 let g:UltiSnipsEditSplit = "vertical"
@@ -117,6 +118,14 @@ noremap <F6> :b6<cr>
 noremap <F7> :b7<cr>
 noremap <F8> :b8<cr>
 noremap <F9> :b9<cr>
+
+nnoremap <c-h> <c-w>h
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-l> <c-w>l
+
+noremap <leader>l gt
+noremap <leader>h gT
 
 highlight SpellBad ctermbg=200
 highlight Search ctermbg=20

@@ -61,8 +61,7 @@ fi
 alias mnv='mvn -T 6'
 
 alias ebrc='vi ~/.bashrc && source ~/.bashrc'
-alias clip='pbcopy'
-alias paste='pbpaste'
+alias ei3='vi ~/.config/i3/config'
 alias pdb='python3 -m pdb'
 alias python='python3'
 alias tree='tree -C'
@@ -83,8 +82,11 @@ alias glo='git log --oneline --graph'
 alias gla='git log --oneline --graph --all'
 alias gsta='git stash'
 
-alias gchD='git checkout Development'
-
 if [[ "$OSTYPE" == "darwin"* ]]; then
+    alias paste='pbpaste'
+    alias clip='pbcopy'
     export PATH="$PATH:/Users/$(whoami)/Developer/flutter/bin:/usr/local/Cellar/openvpn/2.4.7_1/sbin"
+elif [[ "$OSTYPE" == "linux-gnu" ]]; then
+    alias paste='xclip -o'
+    alias clip='xclip -i'
 fi
