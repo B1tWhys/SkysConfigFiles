@@ -112,7 +112,7 @@ for (${1:i} = 0; $1 < ${2:count}; ${3:$1++}) {
 endsnippet
 
 snippet fori "for int loop (fori)"
-for (${1:int} ${2:i} = 0; $2 < ${3:count}; ${4:$2++}) {
+for (${1:int} ${2:i} = ${3:0}; $2 < ${4:count}; ${5:$2++}) {
 	${VISUAL}$0
 }
 endsnippet
@@ -172,6 +172,7 @@ snippet }case "switch-case" A
 } case ${1:value}: {
 	$2
 	break;
+}
 endsnippet
 
 # vim:ft=snippets:
