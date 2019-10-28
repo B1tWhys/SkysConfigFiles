@@ -31,9 +31,12 @@ fi
 set -o vi
 shopt -s cdspell
 
+lt() {
+    ls -t $1 | head
+}
+
 alias ls='ls -F'
 alias la='ls -A'
-alias lt='ls -t | head'
 alias ll='ls -lh'
 alias l='ls'
 alias g='if [ -s $defaultLocation ]; then if [ -d `cat $defaultLocation` ]; then cd $(cat /tmp/defaultTerminalLocation); fi; fi'
@@ -82,15 +85,18 @@ alias gb='git branch'
 alias gch='git checkout'
 alias gl='git log --graph'
 alias glo='git log --oneline --graph'
-alias gla='git log --oneline --graph --all'
+alias gla='git log --graph --all'
+alias gloa='git log --oneline --graph --all'
 alias glav='git log --graph --all'
 alias gsta='git stash'
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
     alias paste='pbpaste'
     alias clip='pbcopy'
-    export PATH="$PATH:/Users/$(whoami)/Developer/flutter/bin:/usr/local/Cellar/openvpn/2.4.7_1/sbin"
+    export PATH="/Library/Java/JavaVirtualMachines/amazon-corretto-8.jdk/Contents/Home/bin:$PATH:/Users/$(whoami)/Developer/flutter/bin:/usr/local/Cellar/openvpn/2.4.7_1/sbin"
 elif [[ "$OSTYPE" == "linux-gnu" ]]; then
     alias paste='xclip -o'
     alias clip='xclip -i'
 fi
+
+alias ack="ag --pager='less -r'"
