@@ -21,11 +21,11 @@ if [ ! -z `command -v powerline` ]; then
     POWERLINE_BASH_SELECT=1
     . /usr/share/powerline/bindings/bash/powerline.sh
 else 
-if [ $(whoami) == 'root' ]; then
-    PS1="\e[95m!\! \e[32m[\T] \e[91m$(whoami)\e[36m@\h \e[31m\w\e[39m\n# "
-else
-    PS1="\e[95m!\! \e[32m[\T] \e[36m$(whoami)@\h \e[31m\w\e[39m\n# "
-fi
+    if [[ $(whoami) == 'root' ]]; then
+        PS1="\e[95m!\! \e[32m[\T] \e[91m$(whoami)\e[36m@\h \e[31m\w\e[39m\n# "
+    else
+        PS1="\e[95m!\! \e[32m[\T] \e[36m$(whoami)@\h \e[31m\w\e[39m\n# "
+    fi
 fi
 
 set -o vi
