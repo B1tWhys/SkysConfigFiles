@@ -100,6 +100,8 @@ alias gsta='git stash'
 alias gdiff='git diff'
 alias gdif='git diff'
 
+alias sctl='sudo systemctl'
+
 if [[ "$OSTYPE" == "darwin"* ]]; then
     alias paste='pbpaste'
     alias clip='pbcopy'
