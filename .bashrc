@@ -106,7 +106,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     alias paste='pbpaste'
     alias clip='pbcopy'
     export PATH="/Library/Java/JavaVirtualMachines/amazon-corretto-8.jdk/Contents/Home/bin:$PATH:/Users/$(whoami)/Developer/flutter/bin:/usr/local/Cellar/openvpn/2.4.7_1/sbin"
-    export JAVA_HOME=$(/usr/libexec/java_home)
+    export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_231.jdk/Contents/Home/
     export NVM_HOME=~/.nvm
     source $(brew --prefix nvm)/nvm.sh
 elif [[ "$OSTYPE" == "linux-gnu" ]]; then
