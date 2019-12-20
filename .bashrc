@@ -15,21 +15,28 @@ if [ -s $defaultLocation ]; then
     fi
 fi
 
-if [ ! -z `command -v powerline` ]; then
-    powerline-daemon -q
-    POWERLINE_BASH_CONTINUATION=1
-    POWERLINE_BASH_SELECT=1
-    . /usr/share/powerline/bindings/bash/powerline.sh
-else 
-    if [[ $(whoami) == 'root' ]]; then
-        PS1="\e[95m!\! \e[32m[\T] \e[91m$(whoami)\e[36m@\h \e[31m\w\e[39m\n# "
-    else
-        PS1="\e[95m!\! \e[32m[\T] \e[36m$(whoami)@\h \e[31m\w\e[39m\n# "
+if [[ "$SHELL" == '/bin/zsh' ]]; then
+    #PS1="%{\e[95m!%}\! \e[32m[\T] \e[91m$(whoami)\e[36m@\h \e[31m\w\e[39m\n# "
+    PS1="!%F{198}%! %F{2}[%T] %F{33}%n%F{15}@%F{31}%m %~%F{15}
+# "
+elif [[ "$SHELL" == '/bin/bash' ]]; then
+    if [[ ! -z `command -v powerline` ]]; then
+        powerline-daemon -q
+        POWERLINE_BASH_CONTINUATION=1
+        POWERLINE_BASH_SELECT=1
+        . /usr/share/powerline/bindings/bash/powerline.sh
+    else 
+        if [[ $(whoami) == 'root' ]]; then
+            PS1="\e[95m!\! \e[32m[\T] \e[91m$(whoami)\e[36m@\h \e[31m\w\e[39m\n# "
+        else
+            PS1="\e[95m!\! \e[32m[\T] \e[36m$(whoami)@\h \e[31m\w\e[39m\n# "
+        fi
     fi
+
+    shopt -s cdspell
 fi
 
 set -o vi
-shopt -s cdspell
 
 lt() {
     ls -t $1 | head
@@ -37,7 +44,7 @@ lt() {
 
 alias ls='ls -F'
 alias la='ls -A'
-alias ll='ls -lh'
+alias ll='ls -alh'
 alias l='ls'
 alias g='if [ -s $defaultLocation ]; then if [ -d `cat $defaultLocation` ]; then cd $(cat /tmp/defaultTerminalLocation); fi; fi'
 alias dtd="pwd > /tmp/defaultTerminalLocation"
@@ -90,14 +97,26 @@ alias gla='git log --graph --all'
 alias gloa='git log --oneline --graph --all'
 alias glav='git log --graph --all'
 alias gsta='git stash'
+alias gdiff='git diff'
+alias gdif='git diff'
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
     alias paste='pbpaste'
     alias clip='pbcopy'
     export PATH="/Library/Java/JavaVirtualMachines/amazon-corretto-8.jdk/Contents/Home/bin:$PATH:/Users/$(whoami)/Developer/flutter/bin:/usr/local/Cellar/openvpn/2.4.7_1/sbin"
+    export JAVA_HOME=$(/usr/libexec/java_home)
+    export NVM_HOME=~/.nvm
+    source $(brew --prefix nvm)/nvm.sh
 elif [[ "$OSTYPE" == "linux-gnu" ]]; then
     alias paste='xclip -o'
     alias clip='xclip -i'
 fi
 
+alias p8='ping 8.8.8.8'
 alias ack="ag --pager='less -r'"
+alias ipython='ipython --TerminalInteractiveShell.editing_mode=vi'
+
+if [[ -s ~/Developer/configFiles/exportCreds.sh ]]; then 
+    source ~/Developer/configFiles/exportCreds.sh
+fi
+
