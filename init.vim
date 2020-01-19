@@ -55,7 +55,7 @@ let dart_style_guide=2
 let g:airline_powerline_fonts = 1
 let g:bufferline_echo = 0
 
-map <C-t> :NERDTree<cr>
+map <C-t> :NERDTreeToggle<cr>
 
 let g:ycm_confirm_extra_conf=0
 let g:ycm_autoclose_preview_window_after_insertion=1

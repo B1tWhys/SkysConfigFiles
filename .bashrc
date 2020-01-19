@@ -64,8 +64,8 @@ alias mnv='mvn -T 6'
 
 alias ebrc='vi ~/.bashrc && source ~/.bashrc'
 alias ei3='vi ~/.config/i3/config'
-alias pdb='python3 -m pdb'
-alias python='python3'
+alias pdb='python3.8 -m pdb'
+alias python='python3.8'
 alias tree='tree -C'
 alias ..='cd ..'
 alias ...='cd ../..'
@@ -97,8 +97,8 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     alias clip='pbcopy'
     export PATH="/Library/Java/JavaVirtualMachines/amazon-corretto-8.jdk/Contents/Home/bin:$PATH:/Users/$(whoami)/Developer/flutter/bin:/usr/local/Cellar/openvpn/2.4.7_1/sbin"
 elif [[ "$OSTYPE" == "linux-gnu" ]]; then
-    alias paste='xclip -o'
-    alias clip='xclip -i'
+    alias paste='xclip -o -selection clipboard'
+    alias clip='xclip -i -selection clipboard'
 fi
 
 alias ack="ag --pager='less -r'"
