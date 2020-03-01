@@ -99,6 +99,10 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 elif [[ "$OSTYPE" == "linux-gnu" ]]; then
     alias paste='xclip -o -selection clipboard'
     alias clip='xclip -i -selection clipboard'
+    if [[ "$HOSTNAME" == "Shadowfax" ]]; then
+        export PATH="$PATH:/opt/idea-IC-193.6494.35/bin"
+        export JAVA_HOME="/usr/lib/jvm/java-11-openjdk"
+    fi
 fi
 
 alias ack="ag --pager='less -r'"
