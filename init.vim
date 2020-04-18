@@ -21,6 +21,9 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-scripts/a.vim'
 Plug 'morhetz/gruvbox'
 "Plug 'yggdroot/indentline'
+Plug 'udalov/kotlin-vim'
+Plug 'diepm/vim-rest-console'
+Plug 'raimondi/delimitmate'
 call plug#end()
 
 let mapleader = ","
