@@ -68,13 +68,14 @@ if [ ! -z `command -v pacman` ]; then
     alias pm='sudo pacman'
 fi
 
-alias mnv='mvn -T 6'
+alias mvn='mvn -T 16'
 
 alias ebrc='vi ~/.bashrc && source ~/.bashrc'
 alias ei3='vi ~/.config/i3/config'
 alias pdb='python3 -m pdb'
 alias python='python3'
 alias tree='tree -C'
+
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
