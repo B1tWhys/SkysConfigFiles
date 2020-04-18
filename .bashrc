@@ -108,7 +108,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     alias bbedit='open -a BBEdit'
     alias paste='pbpaste'
     alias clip='pbcopy'
-    export PATH="/Library/Java/JavaVirtualMachines/amazon-corretto-8.jdk/Contents/Home/bin:$PATH:/Users/$(whoami)/Developer/flutter/bin:/usr/local/Cellar/openvpn/2.4.7_1/sbin"
+    export PATH="/usr/local/opt/python@3.8/bin:$HOME/Developer/scripts:/Library/Java/JavaVirtualMachines/amazon-corretto-8.jdk/Contents/Home/bin:/Users/$(whoami)/Developer/flutter/bin:/usr/local/Cellar/openvpn/2.4.7_1/sbin:$PATH"
     export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_231.jdk/Contents/Home/
     export NVM_HOME=~/.nvm
     source $(brew --prefix nvm)/nvm.sh
@@ -123,5 +123,9 @@ alias ipython='ipython --TerminalInteractiveShell.editing_mode=vi'
 
 if [[ -s ~/Developer/configFiles/exportCreds.sh ]]; then 
     source ~/Developer/configFiles/exportCreds.sh
+fi
+
+if [[ -s ~/Developer/configFiles/local-docker-vars.sh ]]; then
+    source ~/Developer/configFiles/local-docker-vars.sh
 fi
 
