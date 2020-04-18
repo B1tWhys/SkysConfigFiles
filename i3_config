@@ -148,20 +148,20 @@ set $ws12 "c"
 # assign workspaces to screens
 workspace 1 output HDMI-0
 workspace 2 output DP-2
-workspace 3 output DVI-D-0
+workspace 3 output HDMI-1
 workspace q output HDMI-0
 workspace w output DP-2
-workspace e output DVI-D-0
+workspace e output HDMI-1
 workspace a output HDMI-0
 workspace s output DP-2
-workspace d output DVI-D-0
+workspace d output HDMI-1
 workspace z output HDMI-0
 workspace x output DP-2
-workspace c output DVI-D-0
+workspace c output HDMI-1
 
 bindsym $mod+1 focus output HDMI-0
 bindsym $mod+2 focus output DP-2
-bindsym $mod+3 focus output DVI-D-0
+bindsym $mod+3 focus output HDMI-1
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
