@@ -102,7 +102,9 @@ alias gdif='git diff'
 
 alias sctl='sudo systemctl'
 
+
 if [[ "$OSTYPE" == "darwin"* ]]; then
+    alias bbedit='open -a BBEdit'
     alias paste='pbpaste'
     alias clip='pbcopy'
     export PATH="/Library/Java/JavaVirtualMachines/amazon-corretto-8.jdk/Contents/Home/bin:$PATH:/Users/$(whoami)/Developer/flutter/bin:/usr/local/Cellar/openvpn/2.4.7_1/sbin"
