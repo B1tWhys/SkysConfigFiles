@@ -37,6 +37,8 @@ hi Normal ctermbg=none
 autocmd BufNewFile,BufRead *.de set syntax=c
 autocmd BufNewFile,BufRead *.frag set syntax=c
 
+au BufRead /tmp/psql.edit.* set syntax=sql
+
 let g:NERDCustomDelimiters = { 'c': { 'left': '// ','right': ''}}
 let g:NERDDpaceDelims=1
 
@@ -110,7 +112,7 @@ set showmatch
 set hlsearch
 set wrap
 set mouse=a
-autocmd InsertLeave ? update
+"autocmd InsertLeave ? update
 
 noremap <F1> :b1<cr>
 noremap <F2> :b2<cr>

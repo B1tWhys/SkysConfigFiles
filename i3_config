@@ -39,7 +39,7 @@ for_window [class="SpeedCrunch"] resize set 800px 800px, move scratchpad
 for_window [title="peek"] floating enable
 
 # sleep shortcut
-bindsym $mod+shift+s exec systemctl suspend
+bindsym $mod+shift+s exec --no-startup-id /usr/local/bin/sleep_to_ram
 
 # start dropbox
 exec --no-startup-id dropbox &

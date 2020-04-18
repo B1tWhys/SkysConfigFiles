@@ -72,8 +72,8 @@ alias mvn='mvn -T 16'
 
 alias ebrc='vi ~/.bashrc && source ~/.bashrc'
 alias ei3='vi ~/.config/i3/config'
-alias pdb='python3 -m pdb'
-alias python='python3'
+alias pdb='python3.8 -m pdb'
+alias python='python3.8'
 alias tree='tree -C'
 
 alias ..='cd ..'
@@ -113,8 +113,12 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     export NVM_HOME=~/.nvm
     source $(brew --prefix nvm)/nvm.sh
 elif [[ "$OSTYPE" == "linux-gnu" ]]; then
-    alias paste='xclip -o'
-    alias clip='xclip -i'
+    alias paste='xclip -o -selection clipboard'
+    alias clip='xclip -i -selection clipboard'
+    if [[ "$HOSTNAME" == "Shadowfax" ]]; then
+        export PATH="$PATH:/opt/idea-IC-193.6494.35/bin"
+        export JAVA_HOME="/usr/lib/jvm/java-11-openjdk"
+    fi
 fi
 
 alias p8='ping 8.8.8.8'
