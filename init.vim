@@ -109,7 +109,7 @@ set showmatch
 set hlsearch
 set wrap
 set mouse=a
-autocmd InsertLeave ? update
+"autocmd InsertLeave ? update
 
 noremap <F1> :b1<cr>
 noremap <F2> :b2<cr>
