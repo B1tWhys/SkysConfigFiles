@@ -34,6 +34,8 @@ hi Normal ctermbg=none
 autocmd BufNewFile,BufRead *.de set syntax=c
 autocmd BufNewFile,BufRead *.frag set syntax=c
 
+au BufRead /tmp/psql.edit.* set syntax=sql
+
 let g:NERDCustomDelimiters = { 'c': { 'left': '// ','right': ''}}
 let g:NERDDpaceDelims=1
 
