@@ -58,7 +58,7 @@ alias j='jobs'
 alias k='kill'
 
 alias src='source ~/.bash_profile'
-alias make='make -j 6'
+alias make='make -j 16'
 
 if [ ! -z `command -v htop` ]; then
     alias top=htop
