@@ -57,6 +57,9 @@ alias c='clear'
 alias j='jobs'
 alias k='kill'
 
+alias p8='ping 8.8.8.8'
+alias t8='traceroute 8.8.8.8'
+
 alias src='source ~/.bash_profile'
 alias make='make -j 16'
 
