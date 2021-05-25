@@ -24,6 +24,7 @@ Plug 'morhetz/gruvbox'
 Plug 'udalov/kotlin-vim'
 Plug 'diepm/vim-rest-console'
 Plug 'raimondi/delimitmate'
+Plug 'andrewstuart/vim-kubernetes'
 call plug#end()
 
 let mapleader = ","

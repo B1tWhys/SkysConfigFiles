@@ -67,7 +67,7 @@ set $left h
 set $right l
 
 # Audio control keys
-bindsym control+Break exec --no-startup-id /usr/local/bin/toggleAudioOutput
+bindsym control+Break exec --no-startup-id /usr/local/bin/toggleAudio
 bindsym control+Prior exec --no-startup-id /usr/local/bin/incrementVolume
 bindsym control+Next exec --no-startup-id /usr/local/bin/decrementVolume
 

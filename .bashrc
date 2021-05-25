@@ -94,6 +94,7 @@ alias glav='git log --graph --all'
 alias gsta='git stash'
 
 alias sctl='sudo systemctl'
+alias jctl='sudo journalctl'
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
     alias paste='pbpaste'
@@ -109,3 +110,5 @@ elif [[ "$OSTYPE" == "linux-gnu" ]]; then
 fi
 
 alias ack="ag --pager='less -r'"
+complete -C /usr/bin/kustomize kustomize
+complete -C /usr/bin/kustomize kustomize
