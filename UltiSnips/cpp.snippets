@@ -1,0 +1,95 @@
+priority -50
+
+extends c
+
+# We want to overwrite everything in parent ft.
+priority -49
+
+snippet cl "class .. (class)"
+class ${1:`!p snip.rv = snip.basename or "name"`} {
+public:
+	${1/(\w+).*/$1/} (${2:arguments});
+	virtual ~${1/(\w+).*/$1/} ();
+
+private:
+	${0:/* data */}
+};
+endsnippet
+
+snippet struct "Typedef'd struct" b
+typedef struct {
+	$0
+} $1;
+endsnippet
+
+snippet ns "namespace .. (namespace)"
+namespace${1/.+/ /m}${1:`!p snip.rv = snip.basename or "name"`} {
+	${VISUAL}$0
+}${1/.+/ \/* /m}$1${1/.+/ *\/ /m}
+endsnippet
+
+snippet map "std::map (map)"
+std::map<${1:key}, ${2:value}> map$0;
+endsnippet
+
+snippet vector "std::vector (v)"
+std::vector<${1:char}> v$0;
+endsnippet
+
+snippet tp "template <typename ..> (template)"
+template <typename ${1:_InputIter}>
+endsnippet
+
+snippet head ".h file generator" b
+#ifndef $1_H
+#define $1_H
+
+class $2 {
+public:
+	$2();
+	~$2();
+
+	$3
+private:
+	$0
+};
+#endif
+endsnippet
+
+snippet cout "std::cout with newline" b
+std::cout << $1 << std::endl;
+endsnippet
+
+# FUNCTION DEC/DEFs
+snippet mfunc "Member func" b
+${1:ReturnType} ${2:ClassName}::${3:FunctionName}(${4}) {
+	$0
+}
+endsnippet
+
+snippet mfuncn "Member func no params" b
+${1:ReturnType} ${2:ClassName}::${3:FunctionName}() {
+	$0
+}
+endsnippet
+
+snippet hfunc "Header func decl" b
+${1:void} ${2:FuncName}($3);
+endsnippet
+
+snippet hfuncn "Header func decl" b
+${1:void} ${2:FuncName}();
+endsnippet
+
+snippet scast "static cast" i
+static_cast<$1>(${VISUAL}$2)
+endsnippet
+
+snippet include" "include" b
+#include "$1"
+endsnippet
+
+snippet include< "include" b
+#include <$1>
+endsnippet
+# vim:ft=snippets:

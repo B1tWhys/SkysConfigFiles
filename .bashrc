@@ -15,18 +15,27 @@ if [ -s $defaultLocation ]; then
     fi
 fi
 
+#if [ ! -z `command -v powerline` ]; then
+    #powerline-daemon -q
+    #POWERLINE_BASH_CONTINUATION=1
+    #POWERLINE_BASH_SELECT=1
+    #. /usr/share/powerline/bindings/bash/powerline.sh
+#else 
 if [ $(whoami) == 'root' ]; then
-	PS1="\e[95m!\! \e[32m[\T] \e[91m$(whoami)\e[36m@\h \e[31m\w\e[39m\n# "
+    PS1="\e[95m!\! \e[32m[\T] \e[91m$(whoami)\e[36m@\h \e[31m\w\e[39m\n# "
 else
-	PS1="\e[95m!\! \e[32m[\T] \e[36m$(whoami)@\h \e[31m\w\e[39m\n# "
+    PS1="\e[95m!\! \e[32m[\T] \e[36m$(whoami)@\h \e[31m\w\e[39m\n# "
 fi
 
 set -o vi
 shopt -s cdspell
 
+lt() {
+    ls -t $1 | head
+}
+
 alias ls='ls -F'
 alias la='ls -A'
-alias lt='ls -t | head'
 alias ll='ls -lh'
 alias l='ls'
 alias g='if [ -s $defaultLocation ]; then if [ -d `cat $defaultLocation` ]; then cd $(cat /tmp/defaultTerminalLocation); fi; fi'
@@ -39,6 +48,9 @@ alias fgrep='fgrep --color=auto'
 alias c='clear'
 alias j='jobs'
 alias k='kill'
+
+alias p8='ping 8.8.8.8'
+alias t8='traceroute 8.8.8.8'
 
 alias src='source ~/.bash_profile'
 alias make='make -j 6'
@@ -54,28 +66,49 @@ fi
 alias mnv='mvn -T 6'
 
 alias ebrc='vi ~/.bashrc && source ~/.bashrc'
-alias clip='pbcopy'
-alias paste='pbpaste'
-alias pdb='python3 -m pdb'
-alias python='python3'
+alias ei3='vi ~/.config/i3/config'
+alias pdb='python3.9 -m pdb'
+alias python='python3.9'
 alias tree='tree -C'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
 alias ......='cd ../../../../..'
+alias .......='cd ../../../../../..'
+alias ........='cd ../../../../../../..'
+alias .........='cd ../../../../../../../..'
 
 alias gs='git status'
-alias gp='git push'
+alias gpush='git push'
+alias gpul='git pull'
 alias gc='git commit'
 alias ga='git add'
 alias gb='git branch'
 alias gch='git checkout'
 alias gl='git log --graph'
 alias glo='git log --oneline --graph'
-alias gla='git log --oneline --graph --all'
+alias gla='git log --graph --all'
+alias gloa='git log --oneline --graph --all'
+alias glav='git log --graph --all'
 alias gsta='git stash'
 
-alias gchD='git checkout Development'
+alias sctl='sudo systemctl'
+alias jctl='sudo journalctl'
 
-export PATH="$PATH:/Users/skylerarnold/Developer/flutter/bin:/usr/local/Cellar/openvpn/2.4.7_1/sbin"
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    alias paste='pbpaste'
+    alias clip='pbcopy'
+    export PATH="/Library/Java/JavaVirtualMachines/amazon-corretto-8.jdk/Contents/Home/bin:$PATH:/Users/$(whoami)/Developer/flutter/bin:/usr/local/Cellar/openvpn/2.4.7_1/sbin"
+elif [[ "$OSTYPE" == "linux-gnu" ]]; then
+    alias paste='xclip -o -selection clipboard'
+    alias clip='xclip -i -selection clipboard'
+    if [[ "$HOSTNAME" == "Shadowfax" ]]; then
+        export PATH="$PATH:/opt/idea-IC-193.6494.35/bin"
+        export JAVA_HOME="/usr/lib/jvm/java-11-openjdk"
+    fi
+fi
+
+alias ack="ag --pager='less -r'"
+complete -C /usr/bin/kustomize kustomize
+complete -C /usr/bin/kustomize kustomize
